@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+<h1>User List</h1>
+<form th:action="@{/users/search}" th:method="get">
+    <label for="searchTerm">Search(手机号后四位):</label>
+    <input type="text" id="searchTerm" name="keyword" th:value="${keyword}">
+    <button type="submit">Search</button>
+</form>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.phoneNumber}"></td>
+        <td>
+            <a th:href="@{/users/details/{id}(id=${user.id})}">View</a>
+            <a th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a>
+            <a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/users/create}" class="btn">Create User</a>
+</body>
+</html>

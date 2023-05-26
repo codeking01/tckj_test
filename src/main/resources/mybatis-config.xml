@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 顺序严格要求！！！
+   核心配置文件中的标签必须按照固定的顺序：
+    properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?
+    ,plugins?,environments?,databaseIdProvider?,mappers?-->
+    <!--设置连接数据库的环境-->
+    <!--  引入配置文件  -->
+    <!--<properties resource="jdbc.properties"/>-->
+    <settings>
+        <!--  不建议打开，因为有的字段比较长 false是关闭      -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启延迟加载-->
+        <!--<setting name="lazyLoadingEnabled" value="true"/>-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+        <!-- 开启缓存 -->
+        <!--<setting name="cacheEnabled" value="true"/>-->
+    </settings>
+    <typeAliases>
+        <!-- 实体类包名，用于自动扫描实体类别名 -->
+        <package name="com.codeking.tckj_test.entity"/>
+    </typeAliases>
+    <!--<environments default="development">-->
+    <!--    &lt;!&ndash;environments：设置多个连接数据库的环境 属性：default：设置默认使用的环境的id&ndash;&gt;-->
+    <!--    <environment id="development">-->
+    <!--        &lt;!&ndash;transactionManager：设置事务管理方式属性：type：设置事务管理方式，type="JDBC|MANAGED"-->
+    <!--            type="JDBC"：设置当前环境的事务管理都必须手动处理type="MANAGED"：设置事务被管理，例如spring中的AOP&ndash;&gt;-->
+    <!--        <transactionManager type="JDBC"/>-->
+    <!--        <dataSource type="POOLED">-->
+    <!--            &lt;!&ndash;dataSource：设置数据源属性：type：设置数据源的类型，type="POOLED|UNPOOLED|JNDI"-->
+    <!--            type="POOLED"：使用数据库连接池，即会将创建的连接进行缓存，下次使用可以从缓存中直接获取，不需要重新创建-->
+    <!--            type="UNPOOLED"：不使用数据库连接池，即每次使用连接都需要重新创建type="JNDI"：调用上下文中的数据源&ndash;&gt;-->
+    <!--            &lt;!&ndash; 弃用了 <property name="driver" value="com.mysql.jdbc.Driver"/>&ndash;&gt;-->
+    <!--            <property name="driver" value="${jdbc.driver}"/>-->
+    <!--            <property name="url" value="${jdbc.url}"/>-->
+    <!--            <property name="username" value="${jdbc.username}"/>-->
+    <!--            <property name="password" value="${jdbc.password}"/>-->
+    <!--        </dataSource>-->
+    <!--    </environment>-->
+    <!--</environments>-->
+    <!--引入映射文件-->
+    <!--<mappers>-->
+    <!--&lt;!&ndash;    &lt;!&ndash;以包为单位，将包下所有的映射文件引入核心配置文件注意：此方式必须保证mapper接口和mapper映射文件必须在相同的包下&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;    &lt;!&ndash;        <mapper resource="mappers/TestMapper.xml"/>&ndash;&gt;&ndash;&gt;-->
+    <!--    <package name="com.codeking.tckj_test.mapper"/>-->
+    <!--</mappers>-->
+</configuration>

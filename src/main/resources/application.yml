@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: tckj
+  # 数据库连接配置
+  datasource:
+    url: jdbc:mysql://${ip}:3308/tckj_db
+    username: root
+    password: 123456
+
+  thymeleaf:
+    prefix: classpath:/templates/
+
+# MyBatis 配置
+mybatis:
+  config-location: classpath:mybatis-config.xml
+#  mapper-locations: classpath:com/codeking/tckj_test/mapper/*.xml
